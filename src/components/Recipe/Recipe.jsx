@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { StyledRecipe } from "./StyledRecipe";
 
 import { BsAlarm } from "react-icons/bs";
+import { BsPieChart } from "react-icons/bs";
+import { BsBarChart } from "react-icons/bs";
 
 export const Recipe = ({
   name,
@@ -23,27 +25,40 @@ export const Recipe = ({
             <span>
               <BsAlarm />
             </span>
-            {time}
+            {time} min
           </p>
         </li>
         <li>
-          <p>{servings}</p>
+          <p>
+            <span>
+              <BsPieChart />
+            </span>
+            {servings} servings
+          </p>
         </li>
         <li>
-          <p>{calories}</p>
+          <p>
+            <span>
+              <BsBarChart />
+            </span>
+            {calories} calories
+          </p>
         </li>
       </ul>
-      <ul>
+      <div className="difficulty">
+        <h2>Difficulty</h2>
+        <ul>
         <li>
-          <p>Easy</p>
+          <p className={difficulty === 0 ? "active" : ""}>Easy</p>
         </li>
         <li>
-          <p>Medium</p>
+          <p className={difficulty === 1 ? "active" : ""}>Medium</p>
         </li>
         <li>
-          <p>Hard</p>
+          <p className={difficulty === 2 ? "active" : ""}>Hard</p>
         </li>
-      </ul>
+        </ul>
+      </div>
     </StyledRecipe>
   );
 };
